@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/jy-single/static/css/main.f855e6bc.css",
-    "main.js": "/jy-single/static/js/main.c18ef135.js",
+    "main.css": "/jy-single/static/css/main.1610aca7.css",
+    "main.js": "/jy-single/static/js/main.f9e6bfe0.js",
     "static/js/453.3d0c1918.chunk.js": "/jy-single/static/js/453.3d0c1918.chunk.js",
-    "static/media/logo.svg": "/jy-single/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/boy.jpg": "/jy-single/static/media/boy.1381c2795d49d378e0b6.jpg",
+    "static/media/girl.jpg": "/jy-single/static/media/girl.4b786abc71e2c0ce9e4e.jpg",
+    "static/media/Limboer_Yin.jpg": "/jy-single/static/media/Limboer_Yin.ee6f45cf475107036bd2.jpg",
+    "static/media/Hughiecc.jpg": "/jy-single/static/media/Hughiecc.eaa99c1636eff6851e11.jpg",
     "index.html": "/jy-single/index.html",
-    "main.f855e6bc.css.map": "/jy-single/static/css/main.f855e6bc.css.map",
-    "main.c18ef135.js.map": "/jy-single/static/js/main.c18ef135.js.map",
+    "main.1610aca7.css.map": "/jy-single/static/css/main.1610aca7.css.map",
+    "main.f9e6bfe0.js.map": "/jy-single/static/js/main.f9e6bfe0.js.map",
     "453.3d0c1918.chunk.js.map": "/jy-single/static/js/453.3d0c1918.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.c18ef135.js"
+    "static/css/main.1610aca7.css",
+    "static/js/main.f9e6bfe0.js"
   ]
 }
