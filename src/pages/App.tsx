@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabbar } from "react-vant";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { HomeO, InfoO } from "@react-vant/icons";
@@ -6,7 +6,22 @@ import { HomeO, InfoO } from "@react-vant/icons";
 function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log('index', pathname)
+
+  // react router 不再进行外部的 hash change, 例如, 手动更改 url
+  // 解决方法为手动去监听, 调用 react router 自己的 navigate 方法
+  // https://github.com/remix-run/react-router/issues/9940#issuecomment-1397534720
+  useEffect(() => {
+    const handleHashChange = () => {
+      const [, path] = window.location.hash.split('#/');
+      navigate(path, { replace: true });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [navigate]);
 
   return (
     <div className="App">
