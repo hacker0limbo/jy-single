@@ -6,6 +6,7 @@ import { singleFields } from "../../constants";
 import boyAvatar from "../../images/boy.jpg";
 import girlAvatar from "../../images/girl.jpg";
 import dayjs from "dayjs";
+import './index.css'
 
 type FormValues = {
   gender?: string[];
@@ -105,6 +106,7 @@ export default function Home() {
         }}
       >
         <Form
+          className="filterForm"
           layout="vertical"
           form={form}
           onFinish={(values: FormValues) => {

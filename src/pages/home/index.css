@@ -1,0 +1,7 @@
+/* 可能是由于 webpack 的原因, 导致打包时候会出现 css 顺序错误, 故使用这种方式强行改变优先级 */
+.filterForm .rv-form-item--vertical .rv-field__label {
+  margin-bottom: 8px;
+  width: 100%;
+  -webkit-flex: none;
+  flex: none;
+}
