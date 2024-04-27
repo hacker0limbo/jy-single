@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import About from "../pages/about";
 import DevelopInfo from '../pages/about/DevelopInfo'
 import NotFound from "../pages/error/404";
+import Detail from '../pages/detail'
 
 export const router = createHashRouter([
   {
@@ -21,8 +22,12 @@ export const router = createHashRouter([
         element: <About />,
       },
       {
-        path: "/about/develop-info/:id",
+        path: "/about/develop-info/:wechat",
         element: <DevelopInfo />,
+      },
+      {
+        path: "/detail/:id",
+        element: <Detail />,
       },
     ],
   },

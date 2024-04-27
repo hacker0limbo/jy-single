@@ -1,12 +1,28 @@
 import React, { useMemo, useRef, useState } from "react";
-import { NavBar, Card, Image, Button, Space, Tag, Flex, Typography, Popup, Form, Selector } from "react-vant";
+import {
+  NavBar,
+  Card,
+  Image,
+  Button,
+  Space,
+  Tag,
+  Flex,
+  Typography,
+  Popup,
+  Form,
+  Selector,
+  Search,
+  Sticky,
+  NoticeBar,
+} from "react-vant";
 import data from "../../data/data.json";
-import { Like, FilterO } from "@react-vant/icons";
+import { Like, FilterO, VolumeO } from "@react-vant/icons";
 import { singleFields } from "../../constants";
 import boyAvatar from "../../images/boy.jpg";
 import girlAvatar from "../../images/girl.jpg";
 import dayjs from "dayjs";
-import './index.css'
+import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 type FormValues = {
   gender?: string[];
@@ -17,12 +33,14 @@ const initialValues: FormValues = {
 };
 
 export default function Home() {
+  const navigate = useNavigate();
   const [showFilterPopup, setShowFilterPopup] = useState(false);
   const [form] = Form.useForm<FormValues>();
   const [searchParams, setSearchParams] = useState<FormValues>(initialValues);
   const filteredData = useMemo(() => {
     return data.filter((item: Record<string, string>) => searchParams.gender?.includes(item?.[singleFields?.gender]));
   }, [searchParams.gender]);
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <div>
@@ -39,17 +57,37 @@ export default function Home() {
             }}
             style={{ color: "black", marginTop: 2 }}
             fontSize={20}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
           />
         }
       />
+      <Sticky offsetTop={46}>
+        <NoticeBar scrollable leftIcon={<VolumeO />} text="禁止私下加微信, 如果有兴趣请联系群主!" />
+        <Search
+          shape="round"
+          showAction
+          value={searchValue}
+          actionText={<div>搜索</div>}
+          leftIcon={null}
+          onChange={(v) => {
+            setSearchValue(v);
+          }}
+          disabled
+          placeholder="太忙了输入功能还没时间实现...先忍忍吧"
+        />
+      </Sticky>
       <div style={{ padding: 12 }}>
         {filteredData.map((item: Record<string, string>, index) => {
           const isMale = item?.[singleFields.gender] === "男";
 
           return (
-            <Card key={index} round style={{ marginBottom: 10 }}>
+            <Card
+              key={index}
+              round
+              style={{ marginBottom: 10 }}
+              onClick={() => {
+                navigate(`/detail/${index}`);
+              }}
+            >
               <Card.Body onClick={() => {}}>
                 <Flex gutter={16}>
                   <Flex.Item span={8}>
@@ -61,7 +99,9 @@ export default function Home() {
                         {isMale ? "男生" : "女生"}
                         {index + 1}号
                       </Typography.Title>
-                      <Typography.Text>{dayjs().get("year") - Number(item?.[singleFields.birth])}岁</Typography.Text>
+                      <Typography.Text>
+                        {item?.[singleFields.birth]}/{dayjs().get("year") - Number(item?.[singleFields.birth])}岁
+                      </Typography.Text>
                     </Space>
 
                     <Space justify="between" align="baseline" gap={8} style={{ marginBottom: 4 }}>

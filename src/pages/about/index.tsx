@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <div>
-      <NavBar fixed safeAreaInsetTop title="关于" leftArrow={false} />
+      <NavBar placeholder fixed safeAreaInsetTop title="关于" leftArrow={false} />
       <Cell.Group title="开发人员">
         <Cell
           title="平台制作"

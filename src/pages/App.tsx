@@ -36,11 +36,9 @@ function App() {
           navigate(v as string);
         }}
       >
-        {/* @ts-ignore */}
         <Tabbar.Item name="/" icon={<HomeO />}>
           主页
         </Tabbar.Item>
-        {/* @ts-ignore */}
         <Tabbar.Item name="/about" icon={<InfoO />}>
           关于
         </Tabbar.Item>
