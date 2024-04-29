@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Tabbar } from "react-vant";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { HomeO, InfoO } from "@react-vant/icons";
+import { HomeO, InfoO, BarChartO } from "@react-vant/icons";
 
 function App() {
   const navigate = useNavigate();
@@ -38,6 +38,9 @@ function App() {
       >
         <Tabbar.Item name="/" icon={<HomeO />}>
           主页
+        </Tabbar.Item>
+        <Tabbar.Item name="/charts" icon={<BarChartO  />}>
+          图表
         </Tabbar.Item>
         <Tabbar.Item name="/about" icon={<InfoO />}>
           关于

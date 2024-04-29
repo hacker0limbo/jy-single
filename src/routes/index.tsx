@@ -6,6 +6,7 @@ import About from "../pages/about";
 import DevelopInfo from '../pages/about/DevelopInfo'
 import NotFound from "../pages/error/404";
 import Detail from '../pages/detail'
+import Charts from "../pages/charts";
 
 export const router = createHashRouter([
   {
@@ -16,6 +17,10 @@ export const router = createHashRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/charts",
+        element: <Charts />,
       },
       {
         path: "/about",
